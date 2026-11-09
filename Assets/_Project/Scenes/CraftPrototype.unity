@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb06171eb714da24098bce9736c84e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArtTherapy.Core.CraftBootstrap
+  baseMaterial: {fileID: 2100000, guid: dbae4421ac34f37458260a07b0883be8, type: 2}
   traditions: []
 --- !u!4 &937595978
 Transform:

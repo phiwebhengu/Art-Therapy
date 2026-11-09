@@ -9,11 +9,23 @@ namespace ArtTherapy.Core
     {
         static readonly Color FloorColour = new(0.42f, 0.33f, 0.2f);
 
+        [Tooltip("A URP Lit material. Every runtime material is copied from it.")]
+        [SerializeField] Material baseMaterial;
+
         [Tooltip("Leave empty to use the built-in placeholder traditions.")]
         [SerializeField] CraftTradition[] traditions;
 
         void Awake()
         {
+            if (baseMaterial == null)
+            {
+                Debug.LogError("CraftBootstrap needs a Base Material assigned in the Inspector.", this);
+                enabled = false;
+                return;
+            }
+
+            MaterialFactory.Init(baseMaterial);
+
             if (traditions == null || traditions.Length == 0)
                 traditions = DefaultTraditions.Create();
 
